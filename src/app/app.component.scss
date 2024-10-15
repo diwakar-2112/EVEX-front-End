@@ -1,0 +1,82 @@
+$navbar-bg-color: #ffffff;
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.navbar {
+    border: none !important;
+    background-color: $navbar-bg-color;
+}
+::ng-deep{
+    .p-menubar{
+        border: none;
+        background-color: #000000;
+    }
+}
+::ng-deep .p-menubar {
+    display: flex;
+    justify-content: space-between; 
+    border: none;
+    border-radius: 0;
+}
+
+::ng-deep .p-menubar-start {
+    margin-right: auto; 
+}
+
+::ng-deep .p-menubar-end {
+    margin-left: auto; 
+    display: flex;
+    align-items: center;
+}
+
+::ng-deep{
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+        color: rgba(255, 255, 255, .4);
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        font-size: .75rem;
+        letter-spacing: .125re
+    }
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-text:hover {
+        color: blue;
+        transition: color 0.3s ease; 
+
+    }
+    .p-menuitem-content:hover{
+        background-color: transparent;
+    }
+}
+
+.navbar .ui-menuitem-link {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .navbar .ui-menuitem-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #000;
+    transition: width 0.3s;
+  }
+  
+  .navbar .ui-menuitem-link:hover::after {
+    width: 100%;
+  }
+  
+  
+
+
+  .section{
+    background-image: url("../assets/background.png");
+    width: 100%;
+    height: 100%;
+    background-position: cover;
+  }

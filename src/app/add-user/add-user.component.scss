@@ -1,0 +1,28 @@
+
+body {
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.main-bg{
+
+    background-image: url("/assets/background.png");
+    height: 100vh;
+    width: 100%;
+    // background-position: center;
+    background-size: cover;
+}
+.cards-1{
+    display: flex;
+}
+
+.bg-dark{
+    // background-color: red !important;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(120,120,130,1) 100%, rgba(0,212,255,1) 100%);
+
+}
+@media screen and (min-width:768px) {
+    .section-left{
+        margin-top: -18rem !important;
+    }
+}
