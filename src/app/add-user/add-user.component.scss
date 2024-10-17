@@ -16,13 +16,22 @@ body {
     display: flex;
 }
 
-.bg-dark{
-    // background-color: red !important;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(120,120,130,1) 100%, rgba(0,212,255,1) 100%);
 
-}
 @media screen and (min-width:768px) {
     .section-left{
         margin-top: -18rem !important;
     }
 }
+
+.overlay {
+    position: absolute;
+    margin-top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 10; 
+}
+
+
+

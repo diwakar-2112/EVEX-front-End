@@ -1,14 +1,16 @@
 <div class="card">
-  <p-menubar [model]="items" >
-      <ng-template pTemplate="start" class="">
-          <img src="assets/logo.png" width="80" height="20" alt="">
-      </ng-template>
-      <ng-template pTemplate="end" class="">
-          <div class="flex align-items-center navbar  justify-content-center ">
-              <!-- <p-avatar image="" shape="circle" /> -->
-          </div>
-      </ng-template>
-  </p-menubar>
+    <p-menubar [model]="items" >
+        <ng-template pTemplate="start" class="">
+            <img src="assets/logo.png" width="80" height="20" alt="">
+        </ng-template>
+        <ng-template pTemplate="end" class="">
+            <div class="flex align-items-center navbar  justify-content-center ">
+                <!-- <p-avatar image="" shape="circle" /> -->
+            </div>
+        </ng-template>
+    </p-menubar>
 </div>
- <app-add-user></app-add-user>
+
+
+
 <router-outlet></router-outlet>
