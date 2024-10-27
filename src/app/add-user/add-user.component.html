@@ -1,4 +1,4 @@
-<div class="grid grid-nogutter surface-section text-800" [ngClass]="{'bg-dark':visible,'overlay': visible}">
+<div class="grid grid-nogutter surface-section text-800" [ngClass]="{'overlay': visible,'overlay2':visibleSign}">
     <div class="col-12 section-left md:col-6 p-6 text-center md:text-left flex align-items-center ">
         <section>
             <span class="block text-6xl font-bold mb-1">Discover People.</span>
@@ -6,7 +6,7 @@
             <p class="mt-0 mb-4 text-700 line-height-3">Join the community that makes every event memorable. Explore
                 local events, create your own, and connect with like-minded people.</p>
             <button pButton pRipple label="Login" (click)="showDialog()" type="button" class="mr-3 p-button-raised"></button>
-            <button pButton pRipple label="Sing up"   type="button" (click)="goTo('sign-up')" class="p-button-outlined" ></button>
+            <button pButton pRipple label="Sing up"   type="button" (click)="showSignUp()" class="p-button-outlined" ></button>
         </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden"> 
@@ -14,7 +14,9 @@
             style="height: 70%;clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>
 </div>
+
 <div *ngIf="visible" class="overlay"></div>
+<div *ngIf="visibleSign" class="overlay2"></div>
 
 
 
@@ -23,21 +25,69 @@
 
 
 <!-- models -->
-<div class="card flex justify-content-center">
+ <!-- login -->
+<div class="card flex justify-content-center" [formGroup]="loginData">
     <p-dialog header="Login to continue" [(visible)]="visible" [style]="{ width: '25rem' }">
         <span class="p-text-secondary block mb-5">Fill your details.</span>
         <div class="flex align-items-center gap-3 mb-3">
             <label for="username" class="font-semibold w-6rem">Username</label>
-            <input pInputText id="username" class="flex-auto" autocomplete="off" />
+            <input pInputText formControlName="user"  id="username" class="flex-auto" autocomplete="off" />
         </div>
         <div class="flex align-items-center gap-3 mb-5">
-            <label for="email" class="font-semibold w-6rem">Email</label>
-            <input pInputText id="email" class="flex-auto" autocomplete="off" />
+            <label for="password" class="font-semibold w-6rem">Password</label>
+            <input pInputText formControlName="userPass" id="email" class="flex-auto" autocomplete="off" />
         </div>
         <div class="flex justify-content-end gap-2">
             <p-button label="Cancel" severity="secondary" (click)="visible = false"></p-button>
-            <p-button label="Save" (click)="visible = false"></p-button>
+            <p-button label="Login" (click)="login()"></p-button>
         </div>
     </p-dialog>
 </div>
 
+<!-- sign-up -->
+<div class="card flex justify-content-center" >
+    <p-dialog header="Create an account" [(visible)]="visibleSign" [style]="{ width: '30rem' }" contentStyleClass="custom-dialog">
+        <form [formGroup]="singUpData">
+            <div class="p-field">
+                <label for="email">Email <span class="text-danger">*</span></label>
+                <input formControlName="email" pInputText id="email" type="email" class="p-inputtext w-full" placeholder="Email" />
+            </div>
+
+            <div class="p-field">
+                <label for="displayName">Display Name</label>
+                <input formControlName="username" pInputText id="displayName" class="p-inputtext w-full" placeholder="Display Name" />
+            </div>
+
+            <!-- <div class="p-field">
+                <label for="username">Password <span class="text-danger">*</span></label>
+                <input formControlName="password" pInputText id="username" class="p-inputtext w-full" placeholder="Username" />
+            </div> -->
+
+            <div class="p-field">
+                <label for="password">Password <span class="text-danger">*</span></label>
+                <input pPassword formControlName="password" id="password" class="p-inputtext w-full" placeholder="Password" />
+            </div> 
+
+            <div class="p-field" style="width: 100%;">
+                <div class="field col-12 md:col-12">
+                    <label for="dateformat">DateFormat</label>
+                    <p-calendar appendTo="body"  [(ngModel)]="date" [ngModelOptions]="{standalone: true}" dateFormat="mm-dd-yy" inputId="dateformat"></p-calendar>
+                </div>
+            </div> 
+
+            <div class="p-field-checkbox mb-4">
+                <input type="checkbox" id="emailUpdates" />
+                <label for="emailUpdates" class="ml-2">It's okay to send me emails with updates and offers.</label>
+            </div>
+
+            <div class="flex justify-content-center">
+                <button type="submit" class="p-button w-full" (click)="submitForm()">Continue</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <p class="text-xs">By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+                <a href="#">Already have an account?</a>
+            </div>
+        </form>
+    </p-dialog>
+</div>

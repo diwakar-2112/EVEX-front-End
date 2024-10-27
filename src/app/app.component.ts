@@ -10,10 +10,11 @@ import { RouterOutlet } from '@angular/router';
 import { AddUserComponent } from './add-user/add-user.component';
 import {StyleClassModule} from 'primeng/styleclass';
 import { SignupComponent } from './signup/signup.component';
+import { LoaderComponent } from './loader/loader.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [StyleClassModule,RouterOutlet,SignupComponent,AddUserComponent,MenubarModule,CommonModule,RippleModule,AvatarModule,BadgeModule,InputTextModule],
+  imports: [StyleClassModule,RouterOutlet,LoaderComponent,SignupComponent,AddUserComponent,MenubarModule,CommonModule,RippleModule,AvatarModule,BadgeModule,InputTextModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 
