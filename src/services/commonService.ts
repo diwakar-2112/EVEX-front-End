@@ -14,7 +14,6 @@ import { env } from '../enviorment/env';
         const endpoint = `${this.url}user/sign-up`;  
         return this.http.post<any>(endpoint, body);  
       }
-
       public login(body:any): Observable<any> {
         const endpoint = `${this.url}user/login`;
         return this.http.post<any>(endpoint,body)

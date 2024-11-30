@@ -76,8 +76,6 @@ export class AddUserComponent {
         console.error('Error signing up ', err);
       }
     );
-    
-
   }
   login(){
     let body = {
@@ -88,14 +86,17 @@ export class AddUserComponent {
     document.getElementById('loader')!.style.display = 'block';
     this.commonService.login(body).subscribe(
       (res)=>{
-        if(res){
+        if(res?.message?.errorMessage==""){
+          console.log(" res is ",res.message.errorMessage);
+          
           console.log("user login successfully");
           this.visible=false;
           this.router.navigate(['/home']);
           document.getElementById('loader')!.style.display = 'none';
         }else{
           document.getElementById('loader')!.style.display = 'none';
-          window.open("wrong creds");
+          console.log(" res is ",res.message.errorMessage);
+          window.alert("wrong creds");
         }
       },
       err => {
